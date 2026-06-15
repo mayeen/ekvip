@@ -1,0 +1,12 @@
+public class DoubleCommand:ICommand
+{
+    private int _savedValue;
+
+    public int Execute(int result)
+    {
+        _savedValue = result; // Save before operation for undo
+        return result * 2;
+    }
+
+    public int Undo() => _savedValue;
+}
