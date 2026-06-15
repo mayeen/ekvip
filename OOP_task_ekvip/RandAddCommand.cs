@@ -6,7 +6,7 @@ public class RandAddCommand :ICommand
     {
         _savedValue = result; // Save before operation for undo
         Random rand = new Random();
-        return result + rand.Next(1, 100); 
+        return rand.Next(1, 100); //assume we select a random number between 1 and 100
     }
 
     public int Undo() => _savedValue;
