@@ -4,6 +4,12 @@
     return;
 }
 
+if (!int.TryParse(args[0], out _))
+{
+    Console.WriteLine("Please provide a valid integer as a command-line argument." );
+    return;
+}
+
 int result = int.Parse(args[0]);
 
 Stack<ICommand> commandHistory = new Stack<ICommand>();
@@ -29,7 +35,7 @@ while(true)
             result = randAddCmd.Execute(result);
             commandHistory.Push(randAddCmd);
             break;
-            
+
         case "undo":
             if (commandHistory.Count == 0)
             {
